@@ -6,6 +6,7 @@ import { Planet } from "../../Definitions/Planet";
 import "./Card.css";
 
 interface CardProps {
+	key: number;
 	character: Character;
 	films: Film[];
 }

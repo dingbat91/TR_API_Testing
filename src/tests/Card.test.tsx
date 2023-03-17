@@ -1,16 +1,17 @@
-import { server } from "./server/server.js";
+import {
+	render,
+	screen,
+	waitForElementToBeRemoved,
+} from "@testing-library/react";
+import { describe, expect, test } from "vitest";
 import { CharacterContainer } from "../Components/CardContainer/CharacterContainer";
-import { render, screen } from "@testing-library/react";
 
-describe("Render Tests", () => {
-	beforeAll(() => server.listen());
-	afterEach(() => server.resetHandlers());
-	afterAll(() => server.close());
-
-	test("Render Luke Skywalker Card", () => {
+describe("init Tests", () => {
+	test("Site Renders", async () => {
 		render(<CharacterContainer />);
-		screen.debug();
-		const testElement = screen.queryByText("Luke Skywalker");
-		expect(testElement).toBeInTheDocument();
+
+		await waitForElementToBeRemoved(() => screen.queryByText("Loading..."));
+		console.log(screen.debug());
+		expect(screen.findByText(/Luke Skywalker/i)).toBeInTheDocument();
 	});
 });

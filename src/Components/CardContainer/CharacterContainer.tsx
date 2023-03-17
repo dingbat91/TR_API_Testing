@@ -3,6 +3,7 @@ import { Character } from "../../Definitions/Character";
 import { Film } from "../../Definitions/Film";
 import { useSWFetch } from "../../Hooks/useSWFetch";
 import { Card } from "../Card/Card";
+import { v4 as uuidv4 } from "uuid";
 import "../Card/Card.css";
 import "./CharacterContainer.css";
 
@@ -17,7 +18,7 @@ export const CharacterContainer: React.FC = () => {
 		<div className='container'>
 			{charLoadflag && <div className='Card'>Loading...</div>}
 			{characters.map((char) => (
-				<Card character={char} films={films} />
+				<Card key={uuidv4()} character={char} films={films} />
 			))}
 		</div>
 	);

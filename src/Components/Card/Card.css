@@ -1,0 +1,48 @@
+.Card {
+	background-color: black;
+	color: white;
+	border: 0.5rem gray solid;
+	padding: 1rem;
+	min-width: 15rem;
+}
+
+.Glow:hover {
+	box-shadow: 0 0 10px 5px gold;
+	transition: box-shadow 0.5s;
+}
+
+.Card__Title {
+	text-align: center;
+	font-size: 1.8rem;
+	text-decoration: underline;
+	white-space: nowrap;
+}
+
+.Card__FilmTitle {
+}
+
+.Card__InfoTitle {
+	font-size: 1.2rem;
+	color: gold;
+	font-weight: bold;
+	text-align: center;
+}
+
+.Card__Details {
+	margin-bottom: 0.1rem;
+	padding-left: 5px;
+}
+
+.Card__Details em {
+	color: gold;
+	font-weight: bold;
+	font-style: normal;
+	font-size: 0.8rem;
+}
+
+.Card__FilmList li {
+	margin: 10px;
+	padding-left: 0px;
+	text-decoration: underline;
+	font-size: 1.2rem;
+}

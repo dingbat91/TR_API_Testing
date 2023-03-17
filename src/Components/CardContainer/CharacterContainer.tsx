@@ -3,15 +3,19 @@ import { Character } from "../../Definitions/Character";
 import { Film } from "../../Definitions/Film";
 import { useSWFetch } from "../../Hooks/useSWFetch";
 import { Card } from "../Card/Card";
+import "../Card/Card.css";
+import "./CharacterContainer.css";
 
 export const CharacterContainer: React.FC = () => {
 	const [characters, setCharacters] = React.useState<Character[]>([]);
+	const [charLoadflag, setCharLoadFlag] = React.useState<Boolean>(true);
 	const [films, setfilms] = React.useState<Film[]>([]);
-	useSWFetch("https://swapi.dev/api/films/", setfilms);
-	useSWFetch("https://swapi.dev/api/people/", setCharacters);
+	useSWFetch("https://swapi.dev/api/films/", setfilms, setCharLoadFlag);
+	useSWFetch("https://swapi.dev/api/people/", setCharacters, setCharLoadFlag);
 	console.log(characters);
 	return (
-		<div className='Container'>
+		<div className='container'>
+			{charLoadflag && <div className='Card'>Loading...</div>}
 			{characters.map((char) => (
 				<Card character={char} films={films} />
 			))}
